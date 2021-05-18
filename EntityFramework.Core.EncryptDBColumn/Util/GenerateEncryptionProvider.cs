@@ -49,7 +49,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
             var buffer = Convert.FromBase64String(dataToDecrypt);
-            using MemoryStream memoryStream = new();
+            using MemoryStream memoryStream = new(buffer);
             using CryptoStream cryptoStream = new((Stream)memoryStream, decryptor, CryptoStreamMode.Read);
             using StreamReader streamReader = new((Stream)cryptoStream);
             return streamReader.ReadToEnd();
