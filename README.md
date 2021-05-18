@@ -2,7 +2,7 @@
 Hello, you can store your data in encrypted form in your database with this package. 
 
 ## How to use?
-Install "Entity Framework Core.Encrypt Column" package to your project. 
+Install "[EntityFrameworkCore.EncryptColumn](https://www.nuget.org/packages/EntityFrameworkCore.EncryptColumn)" package to your project. 
 
 Specify your encryption key in the constructor method of your DbContext class and create a instance from the encryption provider. 
 
