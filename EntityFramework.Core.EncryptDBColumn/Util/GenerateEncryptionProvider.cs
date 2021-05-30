@@ -12,7 +12,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 
         public string Encrypt(string dataToEncrypt)
         {
-            if(string.IsNullOrEmpty(key))
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException("EncryptionKey", "Please initialize your encryption key.");
 
             byte[] iv = new byte[16];
@@ -24,13 +24,17 @@ namespace EntityFrameworkCore.EncryptColumn.Util
                 aes.IV = iv;
 
                 ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-                using MemoryStream memoryStream = new MemoryStream();
-                using CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write);
-                using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    streamWriter.Write(dataToEncrypt);
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(dataToEncrypt);
+                            array = memoryStream.ToArray();
+                        }
+                    }
                 }
-                array = memoryStream.ToArray();
             }
             string result = Convert.ToBase64String(array);
             return result;
@@ -43,16 +47,24 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 
             byte[] iv = new byte[16];
 
-            using Aes aes = Aes.Create();
-            aes.Key = Encoding.UTF8.GetBytes(key);
-            aes.IV = iv;
-            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-            var buffer = Convert.FromBase64String(dataToDecrypt);
-            using MemoryStream memoryStream = new MemoryStream(buffer);
-            using CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read);
-            using StreamReader streamReader = new StreamReader((Stream)cryptoStream);
-            return streamReader.ReadToEnd();
+                var buffer = Convert.FromBase64String(dataToDecrypt);
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
         }
     }
 }
