@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
     <PackageVersion>1.1</PackageVersion>
     <Authors>Emre Kizildas</Authors>
-    <PackageIconUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn/raw/main/EntityFramework.Core.EncryptDBColumn/icon.png</PackageIconUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Owners>Emre Kizildas</Owners>
     <PackageProjectUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn</PackageProjectUrl>
