@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>1.1</PackageVersion>
+    <PackageVersion>5.0.6</PackageVersion>
     <Authors>Emre Kizildas</Authors>
     <PackageIconUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn/raw/main/EntityFramework.Core.EncryptDBColumn/icon.png</PackageIconUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -24,7 +24,7 @@
     <Folder Include="Extension\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
