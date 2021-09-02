@@ -31,8 +31,8 @@ namespace EntityFrameworkCore.EncryptColumn.Util
                         using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
                         {
                             streamWriter.Write(dataToEncrypt);
-                            array = memoryStream.ToArray();
                         }
+                        array = memoryStream.ToArray();
                     }
                 }
             }
