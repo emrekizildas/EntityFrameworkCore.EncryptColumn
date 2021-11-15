@@ -23,10 +23,10 @@ namespace EntityFrameworkCore.EncryptColumn.Extension
             {
                 foreach (IMutableProperty property in entityType.GetProperties())
                 {
-                    if(property.ClrType == typeof(string) && !IsDiscriminator(property))
+                    if (property.ClrType == typeof(string) && !IsDiscriminator(property))
                     {
                         object[] attributes = property.PropertyInfo.GetCustomAttributes(typeof(EncryptColumnAttribute), false);
-                        if(attributes.Any())
+                        if (attributes.Any())
                             property.SetValueConverter(encryptionConverter);
                     }
                 }

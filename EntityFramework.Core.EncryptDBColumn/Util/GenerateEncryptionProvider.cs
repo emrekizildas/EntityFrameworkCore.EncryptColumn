@@ -17,7 +17,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 
             if (string.IsNullOrEmpty(dataToEncrypt))
                 return string.Empty;
-                
+
             byte[] iv = new byte[16];
             byte[] array;
 
@@ -50,7 +50,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 
             if (string.IsNullOrEmpty(dataToDecrypt))
                 return string.Empty;
-                
+
             byte[] iv = new byte[16];
 
             using (Aes aes = Aes.Create())
