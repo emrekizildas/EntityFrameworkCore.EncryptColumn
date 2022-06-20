@@ -15,6 +15,9 @@ namespace EntityFrameworkCore.EncryptColumn.Util
             if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException("EncryptionKey", "Please initialize your encryption key.");
 
+            if (string.IsNullOrEmpty(dataToEncrypt))
+                return string.Empty;
+                
             byte[] iv = new byte[16];
             byte[] array;
 
@@ -31,8 +34,8 @@ namespace EntityFrameworkCore.EncryptColumn.Util
                         using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
                         {
                             streamWriter.Write(dataToEncrypt);
-                            array = memoryStream.ToArray();
                         }
+                        array = memoryStream.ToArray();
                     }
                 }
             }
@@ -45,6 +48,9 @@ namespace EntityFrameworkCore.EncryptColumn.Util
             if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException("EncryptionKey", "Please initialize your encryption key.");
 
+            if (string.IsNullOrEmpty(dataToDecrypt))
+                return string.Empty;
+                
             byte[] iv = new byte[16];
 
             using (Aes aes = Aes.Create())
