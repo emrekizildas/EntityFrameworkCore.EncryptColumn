@@ -8,7 +8,11 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 {
     public class GenerateEncryptionProvider : IEncryptionProvider
     {
-        private readonly static string key = Initialize.EncryptionKey;
+        private readonly string key;
+        public GenerateEncryptionProvider(string key)
+        {
+            this.key = key;
+        }
 
         public string Encrypt(string dataToEncrypt)
         {
