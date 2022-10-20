@@ -19,6 +19,7 @@ namespace EntityFrameworkCore.EncryptColumn.Extension
                 throw new ArgumentNullException(nameof(encryptionProvider), "You should create encryption provider.");
 
             var encryptionConverter = new EncryptionConverter(encryptionProvider);
+            var intEncryptionConverter = new IntEncryptionConverter(encryptionProvider);
             foreach (IMutableEntityType entityType in modelBuilder.Model.GetEntityTypes())
             {
                 foreach (IMutableProperty property in entityType.GetProperties())
@@ -28,6 +29,13 @@ namespace EntityFrameworkCore.EncryptColumn.Extension
                         object[] attributes = property.PropertyInfo.GetCustomAttributes(typeof(EncryptColumnAttribute), false);
                         if(attributes.Any())
                             property.SetValueConverter(encryptionConverter);
+                    }
+
+                    if((property.ClrType == typeof(int) || property.ClrType == typeof(int?)) && !IsDiscriminator(property))
+                    {
+                        object[] attributes = property.PropertyInfo.GetCustomAttributes(typeof(EncryptColumnAttribute), false);
+                        if (attributes.Any())
+                            property.SetValueConverter(intEncryptionConverter);
                     }
                 }
             }

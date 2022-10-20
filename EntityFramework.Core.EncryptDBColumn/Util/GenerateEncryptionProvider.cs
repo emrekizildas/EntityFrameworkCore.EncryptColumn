@@ -76,5 +76,15 @@ namespace EntityFrameworkCore.EncryptColumn.Util
                 }
             }
         }
+
+        public string EncryptInt(int dataToEncrypt)
+        {
+            return Encrypt(dataToEncrypt.ToString());
+        }
+
+        public int DecryptInt(string dataToDecrypt)
+        {
+            return int.Parse(Decrypt(dataToDecrypt));
+        }
     }
 }

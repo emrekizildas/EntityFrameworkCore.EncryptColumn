@@ -5,5 +5,8 @@ namespace EntityFrameworkCore.EncryptColumn.Interfaces
     {
         string Encrypt(string dataToEncrypt);
         string Decrypt(string dataToDecrypt);
+
+        string EncryptInt(int dataToEncrypt);
+        int DecryptInt(string dataToDecrypt);
     }
 }
