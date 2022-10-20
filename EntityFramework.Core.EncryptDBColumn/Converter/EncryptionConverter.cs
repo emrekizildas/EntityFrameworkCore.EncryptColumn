@@ -9,4 +9,11 @@ namespace EntityFrameworkCore.EncryptColumn.Converter
         {
         }
     }
+
+    internal sealed class IntEncryptionConverter : ValueConverter<int, string>
+    {
+        public IntEncryptionConverter(IEncryptionProvider encryptionProvider, ConverterMappingHints mappingHints = null) : base(x => encryptionProvider.EncryptInt(x), x => encryptionProvider.DecryptInt(x), mappingHints)
+        {
+        }
+    }
 }
