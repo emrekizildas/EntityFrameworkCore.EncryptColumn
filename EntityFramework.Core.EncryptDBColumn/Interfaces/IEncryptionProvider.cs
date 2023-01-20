@@ -1,9 +1,7 @@
-﻿using System;
-namespace EntityFrameworkCore.EncryptColumn.Interfaces
+﻿namespace EntityFrameworkCore.EncryptColumn.Interfaces;
+
+public interface IEncryptionProvider
 {
-    public interface IEncryptionProvider
-    {
-        string Encrypt(string dataToEncrypt);
-        string Decrypt(string dataToDecrypt);
-    }
+    string Encrypt(string dataToEncrypt);
+    string Decrypt(string dataToDecrypt);
 }
