@@ -8,11 +8,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 	{
 	public class GenerateEncryptionProvider:IEncryptionProvider
 		{
-        private readonly string key;
-        public GenerateEncryptionProvider(string key)
-        {
-            this.key = key;
-        }
+		private readonly static string key = Initialize.EncryptionKey;
 
 		public string Encrypt(string dataToEncrypt)
 			{
@@ -29,7 +25,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 				{
 				aes.Key = Encoding.UTF8.GetBytes(key);
 				aes.IV = iv;
-
+				aes.Padding = PaddingMode.PKCS7;
 				ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 				using(MemoryStream memoryStream = new MemoryStream())
 					{
@@ -61,6 +57,7 @@ namespace EntityFrameworkCore.EncryptColumn.Util
 				{
 				aes.Key = Encoding.UTF8.GetBytes(key);
 				aes.IV = iv;
+				aes.Padding= PaddingMode.PKCS7;
 				ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
 				var buffer = Convert.FromBase64String(dataToDecrypt);
