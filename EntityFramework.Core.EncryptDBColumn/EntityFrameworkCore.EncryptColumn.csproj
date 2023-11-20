@@ -12,7 +12,7 @@
     <Summary>Encrypt &amp; Decrypt your databases columns using EntityFramework Core.</Summary>
     <PackageTags>entityframeworkcore, encryption, encrypt sql, encrypt column, entityframework</PackageTags>
     <Title>EntityFrameworkCore.EncryptColumn</Title>
-    <Description>Use EncryptColumn attribute and your database columns encrtypted. Automatic encrypt and decrypt your columns.</Description>
+    <Description>Use EncryptColumn attribute and your database columns are encrypted. Automatic encryption and decryption of database columns.</Description>
     <PackageId>EntityFrameworkCore.EncryptColumn</PackageId>
   </PropertyGroup>
 
