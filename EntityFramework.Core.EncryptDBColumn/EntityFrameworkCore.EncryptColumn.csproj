@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>6.1.0</PackageVersion>
+    <PackageVersion>6.1.1</PackageVersion>
     <Authors>Emre Kizildas</Authors>
     <PackageIconUrl>icon.png</PackageIconUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -14,7 +14,7 @@
     <Title>EntityFrameworkCore.EncryptColumn</Title>
     <Description>Use the EncryptColumn attribute on your database columns to encrtypt them. Automaticly encrypt and decrypt your columns.</Description>
     <PackageId>EntityFrameworkCore.EncryptColumn</PackageId>
-    <Version>6.1.0</Version>
+    <Version>6.1.1</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Copyright>Copyright © $(Authors) 2023</Copyright>
   </PropertyGroup>

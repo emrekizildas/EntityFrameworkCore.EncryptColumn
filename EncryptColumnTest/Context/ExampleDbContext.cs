@@ -19,6 +19,7 @@ public class ExampleDbContext:DbContext
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+    base.OnModelCreating(modelBuilder);
     modelBuilder.UseEncryption(this._provider);
     //modelBuilder.HasDefaultSchema("dbo");
     //modelBuilder.Entity<User>(entity =>
@@ -27,7 +28,6 @@ public class ExampleDbContext:DbContext
     //  entity.HasKey(u => u.ID).HasName("PK_User_Id");
     //  entity.Property(p => p.ID).HasColumnType("GUID").IsRequired().ValueGeneratedOnAdd();
     //});
-    base.OnModelCreating(modelBuilder);
     }
   }
 
