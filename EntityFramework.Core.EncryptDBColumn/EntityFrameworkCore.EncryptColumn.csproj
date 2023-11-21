@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>6.0.8</PackageVersion>
+    <PackageVersion>8.0.0</PackageVersion>
     <Authors>Emre Kizildas</Authors>
     <PackageIconUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn/raw/main/EntityFramework.Core.EncryptDBColumn/icon.png</PackageIconUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -12,7 +12,7 @@
     <Summary>Encrypt &amp; Decrypt your databases columns using EntityFramework Core.</Summary>
     <PackageTags>entityframeworkcore, encryption, encrypt sql, encrypt column, entityframework</PackageTags>
     <Title>EntityFrameworkCore.EncryptColumn</Title>
-    <Description>Use EncryptColumn attribute and your database columns encrtypted. Automatic encrypt and decrypt your columns.</Description>
+    <Description>Use EncryptColumn attribute and your database columns are encrypted. Automatic encryption and decryption of database columns.</Description>
     <PackageId>EntityFrameworkCore.EncryptColumn</PackageId>
   </PropertyGroup>
 
@@ -23,8 +23,9 @@
     <Folder Include="Util\" />
     <Folder Include="Extension\" />
   </ItemGroup>
+  
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
