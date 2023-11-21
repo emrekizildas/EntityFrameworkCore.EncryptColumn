@@ -4,13 +4,14 @@ Hello, you can store your data in encrypted form in your database with this pack
 ## How to use?
 Install "[EntityFrameworkCore.EncryptColumn](https://www.nuget.org/packages/EntityFrameworkCore.EncryptColumn)" package to your project. 
 
-Specify your encryption key in the constructor method of your DbContext class and create a instance from the encryption provider.  Yout encryption key must be 128 bit!
+Specify your encryption key in the constructor method of your DbContext class and create a instance from the encryption provider. 
 
 ```csharp
 private readonly IEncryptionProvider _provider;
 public ExampleDbContext()
 {
-    this._provider = new GenerateEncryptionProvider("example_encrypt_key");
+    Initialize.EncryptionKey = "example_encrypt_key";
+    this._provider = new GenerateEncryptionProvider();
 }
 ```
 Then specify that you will use an encryption provider in the "OnModelCreating" method. 

@@ -1,19 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>6.0.8</PackageVersion>
+    <PackageVersion>6.1.1</PackageVersion>
     <Authors>Emre Kizildas</Authors>
-    <PackageIconUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn/raw/main/EntityFramework.Core.EncryptDBColumn/icon.png</PackageIconUrl>
+    <PackageIconUrl>icon.png</PackageIconUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Owners>Emre Kizildas</Owners>
     <PackageProjectUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn</PackageProjectUrl>
     <Summary>Encrypt &amp; Decrypt your databases columns using EntityFramework Core.</Summary>
     <PackageTags>entityframeworkcore, encryption, encrypt sql, encrypt column, entityframework</PackageTags>
     <Title>EntityFrameworkCore.EncryptColumn</Title>
-    <Description>Use EncryptColumn attribute and your database columns encrtypted. Automatic encrypt and decrypt your columns.</Description>
+    <Description>Use the EncryptColumn attribute on your database columns to encrtypt them. Automaticly encrypt and decrypt your columns.</Description>
     <PackageId>EntityFrameworkCore.EncryptColumn</PackageId>
+    <Version>6.1.1</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Copyright>Copyright © $(Authors) 2023</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,10 +27,8 @@
     <Folder Include="Extension\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
-    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="[6.0.16,7.0.0)" Condition="'$(TargetFramework)' == 'net6.0'" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="[7.0.5,8.0.0)" Condition="'$(TargetFramework)' == 'net7.0'" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="[8.0.0,9.0.0)" Condition="'$(TargetFramework)' == 'net8.0'" />
   </ItemGroup>
 </Project>
