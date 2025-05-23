@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>9.0</PackageVersion>
+    <PackageVersion>7.0</PackageVersion>
     <Authors>Emre Kizildas</Authors>
     <PackageIconUrl>https://github.com/emrekizildas/EntityFrameworkCore.EncryptColumn/raw/main/EntityFramework.Core.EncryptDBColumn/icon.png</PackageIconUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -24,7 +24,7 @@
     <Folder Include="Extension\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
     <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
